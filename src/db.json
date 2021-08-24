@@ -1,0 +1,38 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "user_name": "User's Name"
+        }
+    ],
+    "posts": [
+        {
+            "id": 1,
+            "album_name": "Album Name",
+            "image_url": "http//:image_url",
+            "genre": "Hip-Hop",
+            "artist": "Artist Name",
+            "tracklist": "song1, song2, song3",
+            "likes": 10,
+            "user_id": 1,
+            "created_at": "8/6/2021, 2:46:39 PM"
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "content": "Some content",
+            "user_id": 1,
+            "post_id": 1,
+            "created_at": "8/6/2021, 2:46:39 PM"
+        }
+    ],
+    "likes": [
+        {
+            "id": 1,
+            "post_id": 1,
+            "user_id": 1
+        }
+    ]
+
+}
