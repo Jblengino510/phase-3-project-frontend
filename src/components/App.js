@@ -1,3 +1,4 @@
+import LandingPage from './LandingPage';
 import NavBar from './NavBar'
 import { Switch, Route, useHistory } from "react-router-dom";
 import { Themeprovider } from '@material-ui/core/styles'
@@ -6,10 +7,11 @@ import '@fontsource/roboto'
 
 function App() {
   return (
-      <div>
-        <NavBar />
+      <div style={{backgroundColor: '#333'}}>
         <Switch>
-          {/* routes to other components */}
+          <Route path="/">
+            <LandingPage />
+          </Route>
         </Switch>
       </div>
   )

@@ -4,7 +4,7 @@ function NavBar() {
     return (
         <div>
             <span>
-                <strong><h1 style={{color: 'white'}}>📦Crate.</h1></strong>
+                {/* <strong><h1 style={{color: 'red'}}>📦Crate.</h1></strong> */}
             </span>
         </div>
     )
