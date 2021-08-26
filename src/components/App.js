@@ -33,10 +33,10 @@ function App() {
       <div style={{backgroundColor: '#333'}}>
         <Switch>
           <Route path="/signup">
-              <SignUp />
+              <SignUp setAllUsers={setAllUsers}/>
           </Route>
           <Route path="/login">
-              <Login allUsers={allUsers}/>
+              <Login />
           </Route>
           <Route path="/profile">
               <Profile />

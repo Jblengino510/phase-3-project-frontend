@@ -19,6 +19,10 @@ function PostForm() {
             [e.target.name]: e.target.value
         })
     }
+
+    function handleFormSubmit(){
+        
+    }
     return (
         <div className="postForm">
             <form>

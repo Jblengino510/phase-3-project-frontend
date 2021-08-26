@@ -1,17 +1,24 @@
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 
-function Login({ allUsers }) {
+function Login() {
+    const [ oneUser, setOneUser ] = useState({})
     const [ formData, setFormData ] = useState({
         user_name: ""
     })
     const history = useHistory()
+
+    useEffect(() => {
+        fetch('http://localhost:9292/users/1')
+        .then(res => res.json())
+        .then(setOneUser)
+    }, [])
     
-    const userOne = allUsers.filter(user => user.user_name === "User 1")
-    console.log(userOne.user_name)
-    console.log(formData.user_name)
+    const userOne = oneUser.user_name
+    console.log(userOne)
+   
 
     function handleFormChange(e) {
         setFormData({...formData, 
@@ -20,7 +27,7 @@ function Login({ allUsers }) {
     }
 
     function handleLoginSubmit() {
-        if(formData.user_name === userOne.user_name)
+        if(formData.user_name === userOne)
             history.push('/profile')
     }
 
