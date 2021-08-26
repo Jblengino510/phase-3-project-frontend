@@ -19,3 +19,30 @@ body {
   margin: 0;
 }
 
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items:baseline;
+  padding: 10px;
+  margin: 0;
+}
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  margin: 20 auto;
+  height: 100vh;
+}
+
+.postForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  margin: 20 auto;
+  height: 100vh;
+}
+
