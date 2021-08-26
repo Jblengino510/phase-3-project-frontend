@@ -12,15 +12,15 @@ import '@fontsource/roboto'
 
 function App() {
   const [ allUsers, setAllUsers ] = useState([])
-  // const [ posts, setPosts ] = useState([])
+  const [ posts, setPosts ] = useState([])
   const [ loggedInUser, setLoggedInUser ] = useState(null)
 
-  // useEffect(() => {
-  //   fetch('http://localhost:9292/posts')
-  //   .then(res => res.json())
-  //   .then(setPosts)
-  // }, [])
-  // console.log(posts)
+  useEffect(() => {
+    fetch('http://localhost:9292/posts')
+    .then(res => res.json())
+    .then(setPosts)
+  }, [])
+  console.log(posts)
 
   useEffect(() => {
     fetch('http://localhost:9292/users')
@@ -39,7 +39,7 @@ function App() {
               <Login />
           </Route>
           <Route path="/profile">
-              <Profile />
+              <Profile posts={posts}/>
           </Route>
           <Route path="/submit">
               <PostForm />

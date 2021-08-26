@@ -20,6 +20,11 @@ function NavBar() {
                         <strong><h1 style={{color: 'white'}}>📦Crate.</h1></strong>
                     </span>
                     <span>
+                        <Button style={{color: '#888888'}}>
+                            Logout
+                        </Button>
+                    </span>
+                    <span>
                     <IconButton
                         aria-label="account of current user"
                         aria-controls="menu-appbar"
