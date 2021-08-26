@@ -12,7 +12,7 @@ import '@fontsource/roboto'
 
 function App() {
   const [ allUsers, setAllUsers ] = useState([])
-  const [ posts, setPosts ] = useState([])
+  // const [ posts, setPosts ] = useState([])
   const [ loggedInUser, setLoggedInUser ] = useState(null)
 
   // useEffect(() => {

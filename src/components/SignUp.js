@@ -7,7 +7,6 @@ function SignUp({ setAllUsers }) {
     const [ formData, setFormData ] = useState({
         user_name: ""
     })
-
     const history = useHistory()
 
     function handleFormChange(e) {

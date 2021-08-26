@@ -1,10 +1,11 @@
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import {useState} from 'react'
+import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 function PostForm() {
-    const [ formData, setFormData ] = useState({
+    const [ posts, setPosts ] = useState([])
+    const [ postData, setPostData ] = useState({
         album_name: "",
         image_url: "",
         artist: "",
@@ -12,20 +13,39 @@ function PostForm() {
         tracklist: ""
 
     })
+    const history = useHistory()
+
+    useEffect(() => {
+        fetch('http://localhost:9292/posts')
+        .then(res => res.json())
+        .then(setPosts)
+    }, [])
 
     function handleFormChange(e){
-        setFormData({
-            ...formData,
+        setPostData({
+            ...postData,
             [e.target.name]: e.target.value
         })
     }
 
-    function handleFormSubmit(){
-        
+    function handlePostSubmit(){
+        fetch('http://localhost:9292/posts', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(postData)
+        })
+        .then(res => res.json())
+        .then(newPost => setPosts([newPost, ...posts]))
+        history.push('/profile')
     }
+    console.log(posts)
+
     return (
         <div className="postForm">
-            <form>
+            <h1 style={{color: 'white'}}>Add to your Crate</h1>
+            <form onSubmit={handlePostSubmit}>
                 <TextField 
                 id="standard-full-width"
                 fullWidth
@@ -33,7 +53,7 @@ function PostForm() {
                 variant="outlined"
                 color="secondary"
                 name="album_name"
-                value={formData.album_name}
+                value={postData.album_name}
                 onChange={handleFormChange}
                 />
                 <br></br>
@@ -45,7 +65,7 @@ function PostForm() {
                 variant="outlined"
                 color="secondary"
                 name="image_url"
-                value={formData.image_url}
+                value={postData.image_url}
                 onChange={handleFormChange}
                 />
                 <br></br>
@@ -57,7 +77,7 @@ function PostForm() {
                 variant="outlined"
                 color="secondary"
                 name="artist"
-                value={formData.artist}
+                value={postData.artist}
                 onChange={handleFormChange}
                 />
                 <br></br>
@@ -69,7 +89,7 @@ function PostForm() {
                 variant="outlined"
                 color="secondary"
                 name="genre"
-                value={formData.genre}
+                value={postData.genre}
                 onChange={handleFormChange}
                 />
                 <br></br>
@@ -81,7 +101,7 @@ function PostForm() {
                 variant="outlined"
                 color="secondary"
                 name="tracklist"
-                value={formData.tracklist}
+                value={postData.tracklist}
                 onChange={handleFormChange}
                 />
                 <br></br>
