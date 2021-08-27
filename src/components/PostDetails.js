@@ -1,7 +1,10 @@
+import NavBar from './NavBar';
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
 import { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom'
 
@@ -30,24 +33,31 @@ function PostDetails({ setPosts }) {
     }
 
     return (
-        <div className="postCard">
-            <h1>{post.album_name}</h1>
-            <img src={post.image_url} alt={post.album_name}/>
-            <h2>{post.artist}</h2>
-            <Button variant="contained" style={{backgroundColor: '#815A34', color: 'white'}}>
-                {post.genre}
-            </Button>
-            <ol>
-                <li>{post.tracklist}</li>
-            </ol>
-            <span>
-                <IconButton aria-label="edit">
-                    <EditIcon />
-                </IconButton>
-                <IconButton onClick={handleDelete} aria-label="delete">
-                    <DeleteIcon />
-                </IconButton>
-            </span>
+        <div className="detailsWrapper">
+            <NavBar />
+            <div className="cardWrapper">
+                <Card  className="cardDetails" style={{backgroundColor: '#444444'}} elevation={6}>
+                    <CardHeader 
+                        title={post.album_name}
+                    />
+                    <img src={post.image_url} alt={post.album_name}/>
+                    <h3>{post.artist}</h3>
+                    <Button variant="contained" style={{backgroundColor: '#815A34', color: 'white'}}>
+                        {post.genre}
+                    </Button>
+                    <ol>
+                        <li>{post.tracklist}</li>
+                    </ol>
+                    <span>
+                        <IconButton aria-label="edit">
+                            <EditIcon />
+                        </IconButton>
+                        <IconButton style={{marginLeft: '100px'}} onClick={handleDelete} aria-label="delete">
+                            <DeleteIcon />
+                        </IconButton>
+                    </span>
+                </Card>
+            </div>
         </div>
     )
 }

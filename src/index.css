@@ -2,7 +2,12 @@
   box-sizing: border-box;
  }
 
-body {
+ html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body, .landingPage {
   background-color: rgb(0, 0, 0, .8);
   background-image: url("./images/vinyl\ gif.gif");
   background-blend-mode: multiply;
@@ -26,6 +31,7 @@ body {
   align-items: center;
   padding: 10px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .signUpForm {
@@ -35,6 +41,8 @@ body {
   align-items:center;
   margin: 20 auto;
   height: 100vh;
+  background-color: #333;
+  background-size: cover;
 }
 
 .postForm {
@@ -44,6 +52,8 @@ body {
   align-items:center;
   margin: 20 auto;
   height: 100vh;
+  background-color: #333;
+  background-size: cover;
 }
 
 .profile {
@@ -52,14 +62,21 @@ body {
   align-items: center;
   height: 100vh;
   margin: 100 0 auto;
+  background-color: #333;
+  background-size: cover;
 }
 
 .cardWrapper {
   width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .postCard {
-  margin: 400px 50px auto;
+  margin: 250px 50px auto;
   padding: 10px;
   width: 450px;
   display: flex;
@@ -69,9 +86,43 @@ body {
   box-shadow: 5px 5px 5px rgb(27, 27, 27);
 }
 
+.cardDetails {
+  margin: 100px 400px auto;
+  padding: 10px;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px 5px rgb(27, 27, 27);
+}
+
+.detailsWrapper {
+  background-color: #333;
+  background-size: cover;
+}
+
 img {
   width: 350px;
   height: 350px;
   border-radius: 0px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  color: white;
+  background-color: black;
+  position: relative;
+  height: 100px;
+  margin-top: -100px;
+  clear: both;
 }
 

@@ -1,3 +1,4 @@
+import NavBar from './NavBar'
 import PostCard from './PostCard'
 import Grid from '@material-ui/core/Grid'
 
@@ -8,6 +9,7 @@ function PostList({ posts }) {
 
     return (
         <div>
+                <NavBar />
                 <Grid container spacing={3}>
                     {renderedPosts}
                 </Grid>

@@ -34,8 +34,7 @@ function App() {
   
   
   return (
-      <div style={{backgroundColor: '#333'}}>
-        <Layout>
+      <div>
           <Switch>
             <Route path="/signup">
                 <SignUp setAllUsers={setAllUsers}/>
@@ -56,7 +55,6 @@ function App() {
               <LandingPage />
             </Route>
           </Switch>
-        </Layout>
       </div>
   )
 }

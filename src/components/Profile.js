@@ -1,12 +1,16 @@
 import PostList from './PostList';
+import NavBar from './NavBar'
 
 
 
 function Profile({ posts }) {
     return (
-            <div className="profile" style={{backGroundColor: '#333'}}>
+        <>
+            <NavBar />
+            <div className="profile">
                 <PostList posts={posts}/>
             </div>
+        </>
     )
 }
 
