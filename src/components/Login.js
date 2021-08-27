@@ -45,6 +45,7 @@ function Login() {
                 name="user_name"
                 value={formData.user_name}
                 onChange={handleFormChange}
+                required
                 />
                 <br></br>
                 <br></br>

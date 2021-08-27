@@ -7,7 +7,7 @@ import Profile from './Profile'
 import PostForm from './PostForm'
 import PostDetails from './PostDetails'
 import { useState, useEffect } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { Themeprovider } from '@material-ui/core/styles'
 import '@fontsource/roboto'
 
@@ -15,7 +15,6 @@ import '@fontsource/roboto'
 function App() {
   const [ allUsers, setAllUsers ] = useState([])
   const [ posts, setPosts ] = useState([])
-  const history = useHistory()
 
   useEffect(() => {
     fetch('http://localhost:9292/posts')

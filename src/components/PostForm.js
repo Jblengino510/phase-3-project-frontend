@@ -53,6 +53,7 @@ function PostForm({ posts, setPosts }) {
                 name="album_name"
                 value={postData.album_name}
                 onChange={handleFormChange}
+                required
                 />
                 <br></br>
                 <br></br>
@@ -65,6 +66,7 @@ function PostForm({ posts, setPosts }) {
                 name="image_url"
                 value={postData.image_url}
                 onChange={handleFormChange}
+                required
                 />
                 <br></br>
                 <br></br>
@@ -77,6 +79,7 @@ function PostForm({ posts, setPosts }) {
                 name="artist"
                 value={postData.artist}
                 onChange={handleFormChange}
+                required
                 />
                 <br></br>
                 <br></br>
@@ -89,6 +92,7 @@ function PostForm({ posts, setPosts }) {
                 name="genre"
                 value={postData.genre}
                 onChange={handleFormChange}
+                required
                 />
                 <br></br>
                 <br></br>
@@ -101,6 +105,7 @@ function PostForm({ posts, setPosts }) {
                 name="tracklist"
                 value={postData.tracklist}
                 onChange={handleFormChange}
+                required
                 />
                 <br></br>
                 <br></br>
