@@ -5,22 +5,30 @@ import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import { Link } from "react-router-dom"
 
 
 
 function NavBar() {
     return (
         <div>
-            <AppBar className="navBar" style={{backgroundColor: '#333'}}>
+            <AppBar className="navBar" style={{backgroundColor: '#252525'}}>
                 <Toolbar>
-                    <IconButton>
+                    <IconButton style={{marginRight: '10px'}}>
                         <MenuIcon />
                     </IconButton>
                     <span>
-                        <strong><h1 style={{color: 'white'}}>📦Crate.</h1></strong>
+                        <Link to='/'>
+                            <strong><h1 style={{color: 'white', marginLeft: '10px'}}>📦Crate.</h1></strong>
+                        </Link>
                     </span>
                     <span>
-                        <Button style={{color: '#888888'}}>
+                        <Button style={{color: '#888888', marginLeft: '1900px', }}>
+                            Learn More
+                        </Button>
+                    </span>
+                    <span>
+                        <Button style={{color: '#888888', marginLeft: '10px'}}>
                             Logout
                         </Button>
                     </span>
@@ -30,24 +38,13 @@ function NavBar() {
                         aria-controls="menu-appbar"
                         aria-haspopup="true"
                         color="inherit"
-                        style={{float: 'right'}}
+                        style={{marginLeft: '10px'}}
                     >
                         <AccountCircle />
                     </IconButton>
                     </span>
                 </Toolbar>
             </AppBar>
-            {/* <span>
-                <Button style={{color: '#888888'}}>
-                    Learn More
-                </Button>
-                <Button style={{color: '#888888'}}>
-                    Login
-                </Button>
-                <Button href="/signup" variant="contained" style={{backgroundColor: '#815A34', color: 'white'}}>
-                    Logout
-                </Button>
-             </span> */}
         </div>
     )
 }

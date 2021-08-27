@@ -1,10 +1,10 @@
 import PostList from './PostList';
-import NavBar from './NavBar'
-import Container from '@material-ui/core/Container';
+
+
+
 function Profile({ posts }) {
     return (
-            <div>
-                <NavBar />
+            <div className="profile" style={{backGroundColor: '#333'}}>
                 <PostList posts={posts}/>
             </div>
     )

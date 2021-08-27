@@ -3,8 +3,7 @@ import Button from '@material-ui/core/Button';
 import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
-function PostForm() {
-    const [ posts, setPosts ] = useState([])
+function PostForm({ posts, setPosts }) {
     const [ postData, setPostData ] = useState({
         album_name: "",
         image_url: "",
@@ -38,9 +37,8 @@ function PostForm() {
         })
         .then(res => res.json())
         .then(newPost => setPosts([newPost, ...posts]))
-        history.push('/profile')
+        // history.push('/profile')
     }
-    console.log(posts)
 
     return (
         <div className="postForm">
