@@ -5,8 +5,8 @@ import { Link } from "react-router-dom"
 
 
 function PostCard({ album_name, image_url, artist, genre, tracklist, post }) {
+  
     return (
-        <div className="cardWrapper">
             <Link to={`/posts/${post.id}`}>
                 <div>
                     <Card className="postCard" style={{backgroundColor: '#444444'}} elevation={6}>
@@ -21,7 +21,6 @@ function PostCard({ album_name, image_url, artist, genre, tracklist, post }) {
                     </Card>
                 </div>
             </Link>
-        </div>
     )
 }
 

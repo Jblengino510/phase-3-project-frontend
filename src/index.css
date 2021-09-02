@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
  }
 
  html, body {
@@ -71,28 +72,8 @@ body, .landingPage {
   background-size: cover;
 }
 
-.cardWrapper {
-  width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.postCard {
-  margin: 250px 50px auto;
-  padding: 10px;
-  width: 450px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 5px 5px 5px rgb(27, 27, 27);
-}
-
 .cardDetails {
-  margin: 200px 400px auto;
+  margin: 200px 500px auto;
   padding: 10px;
   width: 450px;
   display: flex;
@@ -102,9 +83,15 @@ body, .landingPage {
   box-shadow: 5px 5px 5px rgb(27, 27, 27);
 }
 
-.detailsWrapper {
+.detailsWrapper { 
   background-color: #333;
   background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 img {

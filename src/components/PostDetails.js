@@ -13,13 +13,13 @@ function PostDetails({ setPosts }) {
     const [ post, setPost ] = useState({})
     const params = useParams()
     const history = useHistory()
+  
 
 
     useEffect(() => {
         fetch(`http://localhost:9292/posts/${params.id}`)
         .then(r => r.json())
-        .then(data => {setPost({...data})
-        })
+        .then(data => setPost({...data}))
     }, [])
 
     function handleDelete() {
@@ -33,10 +33,15 @@ function PostDetails({ setPosts }) {
         history.push('/profile')
     }
 
+    // let trackListArr = post.tracklist
+    // let eachTrack = trackListArr.split(",")
+    
+  
+    
+
     return (
         <div className="detailsWrapper">
             <NavBar />
-            <div className="cardWrapper">
                 <Card  className="cardDetails" style={{backgroundColor: '#444444'}} elevation={6}>
                     <CardHeader 
                         title={post.album_name}
@@ -47,7 +52,7 @@ function PostDetails({ setPosts }) {
                         {post.genre}
                     </Button>
                     <ol>
-                        <li>{post.tracklist}</li>
+                        {/* { eachTrack !== [] ? eachTrack.map(track => <li>{track}</li>) : null } */}
                     </ol>
                     <span>
                         <IconButton aria-label="edit">
@@ -58,7 +63,6 @@ function PostDetails({ setPosts }) {
                         </IconButton>
                     </span>
                 </Card>
-            </div>
         </div>
     )
 }
