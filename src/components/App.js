@@ -45,7 +45,7 @@ function App() {
                 <Profile posts={posts}/>
             </Route>
             <Route path="/posts/:id">
-                { posts !== [] ? <PostDetails setPosts={setPosts} /> : null }
+                <PostDetails setPosts={setPosts} />
             </Route>
             <Route path="/submit">
                 <PostForm posts={posts} setPosts={setPosts}/>

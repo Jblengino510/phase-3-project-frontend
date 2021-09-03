@@ -4,10 +4,12 @@ import CardHeader from '@material-ui/core/CardHeader';
 import { Link } from "react-router-dom"
 
 
-function PostCard({ album_name, image_url, artist, genre, tracklist, post }) {
+function PostCard({ post }) {
+
+    const { id, album_name, image_url, artist, genre } = post
   
     return (
-            <Link to={`/posts/${post.id}`}>
+            <Link to={`/posts/${id}`}>
                 <div>
                     <Card className="postCard" style={{backgroundColor: '#444444'}} elevation={6}>
                         <CardHeader 

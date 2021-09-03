@@ -13,7 +13,6 @@ function PostDetails({ setPosts }) {
     const [ post, setPost ] = useState({})
     const params = useParams()
     const history = useHistory()
-  
 
 
     useEffect(() => {
@@ -33,9 +32,7 @@ function PostDetails({ setPosts }) {
         history.push('/profile')
     }
 
-    // let trackListArr = post.tracklist
-    // let eachTrack = trackListArr.split(",")
-    
+    let eachTrack = post.tracklist ? post.tracklist.split(",") : []
   
     
 
@@ -52,7 +49,7 @@ function PostDetails({ setPosts }) {
                         {post.genre}
                     </Button>
                     <ol>
-                        {/* { eachTrack !== [] ? eachTrack.map(track => <li>{track}</li>) : null } */}
+                        { eachTrack ? eachTrack.map(track => <li>{track}</li>) : null }
                     </ol>
                     <span>
                         <IconButton aria-label="edit">

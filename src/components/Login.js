@@ -27,8 +27,11 @@ function Login() {
     }
 
     function handleLoginSubmit() {
-        if(formData.user_name === userOne)
+        if(formData.user_name === userOne){
             history.push('/profile')
+        } else {
+            alert("Wrong username")
+        }
     }
 
 

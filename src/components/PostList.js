@@ -5,7 +5,7 @@ import Link from '@material-ui/core/Link'
 
 function PostList({ posts }) {
     const renderedPosts = posts.map(post => 
-        <Grid key={post.id} item spacing={3} xs={12} md={6} lg={4}><PostCard album_name={post.album_name} image_url={post.image_url} artist={post.artist} genre={post.genre} tracklist={post.tracklist} post={post} /></Grid>)
+        <Grid key={post.id} item spacing={3} xs={12} md={6} lg={4}><PostCard post={post} /></Grid>)
 
     return (
             <div className="postList">
