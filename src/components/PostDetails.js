@@ -14,20 +14,20 @@ function PostDetails({ setPosts }) {
     const params = useParams()
     const history = useHistory()
 
-
+    //Fetches post by Id
     useEffect(() => {
         fetch(`http://localhost:9292/posts/${params.id}`)
         .then(r => r.json())
         .then(data => setPost({...data}))
     }, [])
-
+    
     function handleDelete() {
         fetch(`http://localhost:9292/posts/${params.id}`, {
           method: "DELETE"
         })
         .then(res => res.json())
         .then(data => setPosts(posts => {
-            return posts.filter(post => post.album_name !== data.album_name)
+            return posts.filter(post => post.id !== data.id)
         }))
         history.push('/profile')
     }

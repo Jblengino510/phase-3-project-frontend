@@ -14,12 +14,6 @@ function PostForm({ posts, setPosts }) {
     })
     const history = useHistory()
 
-    useEffect(() => {
-        fetch('http://localhost:9292/posts')
-        .then(res => res.json())
-        .then(setPosts)
-    }, [])
-
     function handleFormChange(e){
         setPostData({
             ...postData,
@@ -27,7 +21,8 @@ function PostForm({ posts, setPosts }) {
         })
     }
 
-    function handlePostSubmit(){
+    function handlePostSubmit(e){
+        e.preventDefault()
         fetch('http://localhost:9292/posts', {
             method: "POST",
             headers: {
@@ -37,7 +32,13 @@ function PostForm({ posts, setPosts }) {
         })
         .then(res => res.json())
         .then(newPost => setPosts([newPost, ...posts]))
-        // history.push('/profile')
+         setPostData({
+            album_name: "",
+            image_url: "",
+            artist: "",
+            genre: "",
+            tracklist: ""
+        })
     }
 
     return (
