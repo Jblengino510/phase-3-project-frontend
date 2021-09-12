@@ -1,15 +1,24 @@
 import PostCard from './PostCard'
 import Grid from '@material-ui/core/Grid'
-import Link from '@material-ui/core/Link'
+import { makeStyles } from '@material-ui/core'
+
+const useStyles = makeStyles({
+    postListContainer: {
+        backgroundColor: '#333',
+        backgroundSize: 'cover'
+    }
+})
 
 
 function PostList({ posts }) {
+
+    const classes = useStyles()
     const renderedPosts = posts.map(post => 
-        <Grid key={post.id} item spacing={3} xs={12} md={6} lg={4}><PostCard post={post} /></Grid>)
+        <Grid item xs={12} md={6} lg={4} key={post.id}><PostCard post={post} /></Grid>)
 
     return (
-            <div className="postList">
-                    <Grid container spacing={3}>
+            <div className={classes.postListContainer}>
+                    <Grid container spacing={10}>
                         {renderedPosts}
                     </Grid>
             </div>

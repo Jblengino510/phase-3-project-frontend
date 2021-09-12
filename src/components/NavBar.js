@@ -6,51 +6,80 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Link } from "react-router-dom"
 import { useHistory } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles({
+    root: {
+      flexGrow: 1,
+      width: '100%'
+    },
+    title: {
+      flexGrow: 1,
+      fontSize: '42px',
+      color: 'white'
+    },
+    navBtn: {
+        color: '#888888'
+    },
+    account: {
+        marginLeft: '100px'
+    }, 
+    navBar: {
+        backgroundColor: '#252525'
+    }
+  });
 
 
 
 function NavBar() {
-    
+
+    const classes = useStyles()
     const history = useHistory()
 
     function handleLogout() {
         history.push('/')
     }
 
+    function handleProfileClick() {
+        history.push('/profile')
+    }
+
 
     return (
-        <div>
-            <AppBar className="navBar" style={{backgroundColor: '#252525'}} elevation={0}>
+        <div className={classes.root}>
+            <AppBar className={classes.navBar} elevation={0}>
                 <Toolbar>
-                    <IconButton style={{marginRight: '10px', color: '#815A34'}}>
+                    <IconButton style={{color: '#815A34'}}>
                         <MenuIcon fontSize="large"/>
                     </IconButton>
                     {/* <Avatar src="src/images/crate-of-vinyl.png" variant="square" /> */}
                     <span>
                         <Link to='/'>
-                            <strong><h1 style={{color: 'white', marginLeft: '20px', fontSize: '42px'}}>📦Crate.</h1></strong>
+                            <strong><h1 className={classes.title}>📦Crate.</h1></strong>
                         </Link>
                     </span>
                     <span>
-                        <Button style={{color: '#888888', marginLeft: '1900px', }}>
+                        <Button className={classes.navBtn}>
                             Learn More
                         </Button>
                     </span>
                     <span>
-                        <Button onClick={handleLogout} style={{color: '#888888', marginLeft: '10px'}}>
+                        <Button onClick={() => handleLogout()} className={classes.navBtn}>
                             Logout
                         </Button>
                     </span>
                     <span>
-                    <IconButton
-                        aria-label="account of current user"
-                        aria-controls="menu-appbar"
-                        aria-haspopup="true"
-                        color="inherit"
-                        style={{marginLeft: '10px'}}
-                    >
-                        <AccountCircle fontSize="large"/>
-                    </IconButton>
+                        <IconButton
+                            onClick={() => handleProfileClick()}
+                            edge="end"
+                            // className={classes.account}
+                            aria-label="account of current user"
+                            aria-controls="menu-appbar"
+                            aria-haspopup="true"
+                            color="inherit"
+                        >
+                            <AccountCircle fontSize="large"/>
+                        </IconButton>
                     </span>
                 </Toolbar>
             </AppBar>

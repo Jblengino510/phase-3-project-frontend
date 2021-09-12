@@ -16,9 +16,6 @@ function Login() {
         .then(setOneUser)
     }, [])
     
-    const userOne = oneUser.user_name
-    console.log(userOne)
-   
 
     function handleFormChange(e) {
         setFormData({...formData, 
@@ -27,7 +24,7 @@ function Login() {
     }
 
     function handleLoginSubmit() {
-        if(formData.user_name === userOne){
+        if(formData.user_name === oneUser.user_name){
             history.push('/profile')
         } else {
             alert("Wrong username")
