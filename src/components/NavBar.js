@@ -4,14 +4,18 @@ import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import Typography from '@material-ui/core/Typography'
 import { Link } from "react-router-dom"
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
     title: {
-      fontSize: '42px',
-      color: 'white'
+      color: 'white',
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      flexGrow: 1
     },
     navBtn: {
         color: '#888888',
@@ -19,14 +23,14 @@ const useStyles = makeStyles({
     },
     navBar: {
         backgroundColor: '#252525',
-        width: '100%'
+        width: '100%',
+        padding: '10px'
     }
   });
 
 
 
 function NavBar() {
-
     const classes = useStyles()
     const history = useHistory()
 
@@ -43,10 +47,10 @@ function NavBar() {
         <div>
             <AppBar className={classes.navBar} elevation={0}>
                 <Toolbar>
-                    <Link to='/'>
-                        <strong><h1 className={classes.title}>📦Crate.</h1></strong>
+                    <Link to='/' className={classes.title}>
+                        <img src='/dvd.png' alt='Crate. logo' style={{height: '100px', width: '100px'}}/>
+                        <Typography variant="h2">Crate.</Typography>
                     </Link>
-                    <div style={{flexGrow: 1}}></div>
                     <Button className={classes.navBtn}>
                         Learn More
                     </Button>

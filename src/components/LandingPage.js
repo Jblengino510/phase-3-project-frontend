@@ -1,19 +1,26 @@
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
 import { makeStyles } from '@material-ui/core'
+import { Link } from "react-router-dom"
 
 const useStyles = makeStyles({
     navBar: {
+        backgroundColor: 'inherit',
+        width: '100%',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        padding: '10px',
-        backgroundColor: 'inherit'
+        padding: '20px'
+
     },
     title: {
         color: 'white',
-        fontSize: '54px',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
         flexGrow: 1,
         marginLeft: '10px'
     },
@@ -24,7 +31,7 @@ const useStyles = makeStyles({
     signupBtn: {
         backgroundColor: '#815A34',
         color: 'white',
-        marginRight: '10px'
+        marginRight: '20px'
     },
     body: {
         display: 'flex',
@@ -32,29 +39,29 @@ const useStyles = makeStyles({
         alignItems: 'flex-start',
         margin: 0,
         color: 'white',
-        height: '100vh'
+        height: '100vh',
+        // paddingTop: '150px'
     },
-    LandingPage: {
+    landingPage: {
         backgroundColor: 'rgb(0, 0, 0, .8)',
         backgroundImage: 'url("/vinyl gif.gif")',
         backgroundBlendMode: 'multiply',
-        backgroundSize: 'cover',
+        backgroundSize: 'cover'
     }
 })
 
 function LandingPage() {
-
     const classes = useStyles()
 
 
     return (
-        <div className={classes.LandingPage}>
+        <div className={classes.landingPage}>
             <Grid container>
                 <Grid item xs={12} className={classes.navBar}>
-                    <img src='/dvd.png' alt='Crate. logo' height='10px' width='10px'/>
-                    <Typography varient="h1" className={classes.title}>
-                        Crate.
-                    </Typography>
+                    <Link to='/' className={classes.title}>
+                        <img src='/dvd.png' alt='Crate. logo' style={{height: '100px', width: '100px'}}/>
+                        <Typography variant="h2">Crate.</Typography>
+                    </Link>
                     <Button className={classes.navBtn}>
                         Learn More
                     </Button>

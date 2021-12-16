@@ -47,7 +47,7 @@ function App() {
                 <SignUp setAllUsers={setAllUsers}/>
             </Route>
             <Route path="/login">
-                {loading ? <Login /> : <h1>LOADING...</h1>}
+                <Login />
             </Route>
             <Route path="/profile">
                 <Profile posts={posts}/>
