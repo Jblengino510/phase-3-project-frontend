@@ -51,8 +51,9 @@ function LandingPage() {
         <div className={classes.LandingPage}>
             <Grid container>
                 <Grid item xs={12} className={classes.navBar}>
+                    <img src='/dvd.png' alt='Crate. logo' height='10px' width='10px'/>
                     <Typography varient="h1" className={classes.title}>
-                        📦Crate.
+                        Crate.
                     </Typography>
                     <Button className={classes.navBtn}>
                         Learn More
