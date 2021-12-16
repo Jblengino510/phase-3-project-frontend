@@ -9,23 +9,17 @@ import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
-    root: {
-      flexGrow: 1,
-      width: '100%'
-    },
     title: {
-      flexGrow: 1,
       fontSize: '42px',
       color: 'white'
     },
     navBtn: {
-        color: '#888888'
+        color: '#888888',
+        marginRight: '20px'
     },
-    account: {
-        marginLeft: '100px'
-    }, 
     navBar: {
-        backgroundColor: '#252525'
+        backgroundColor: '#252525',
+        width: '100%'
     }
   });
 
@@ -46,41 +40,29 @@ function NavBar() {
 
 
     return (
-        <div className={classes.root}>
+        <div>
             <AppBar className={classes.navBar} elevation={0}>
                 <Toolbar>
-                    <IconButton style={{color: '#815A34'}}>
-                        <MenuIcon fontSize="large"/>
+                    <Link to='/'>
+                        <strong><h1 className={classes.title}>📦Crate.</h1></strong>
+                    </Link>
+                    <div style={{flexGrow: 1}}></div>
+                    <Button className={classes.navBtn}>
+                        Learn More
+                    </Button>
+                    <Button onClick={() => handleLogout()} className={classes.navBtn}>
+                        Logout
+                    </Button>
+                    <IconButton
+                        onClick={() => handleProfileClick()}
+                        edge="end"
+                        aria-label="account of current user"
+                        aria-controls="menu-appbar"
+                        aria-haspopup="true"
+                        color="inherit"
+                    >
+                        <AccountCircle fontSize="large"/>
                     </IconButton>
-                    {/* <Avatar src="src/images/crate-of-vinyl.png" variant="square" /> */}
-                    <span>
-                        <Link to='/'>
-                            <strong><h1 className={classes.title}>📦Crate.</h1></strong>
-                        </Link>
-                    </span>
-                    <span>
-                        <Button className={classes.navBtn}>
-                            Learn More
-                        </Button>
-                    </span>
-                    <span>
-                        <Button onClick={() => handleLogout()} className={classes.navBtn}>
-                            Logout
-                        </Button>
-                    </span>
-                    <span>
-                        <IconButton
-                            onClick={() => handleProfileClick()}
-                            edge="end"
-                            // className={classes.account}
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            color="inherit"
-                        >
-                            <AccountCircle fontSize="large"/>
-                        </IconButton>
-                    </span>
                 </Toolbar>
             </AppBar>
         </div>

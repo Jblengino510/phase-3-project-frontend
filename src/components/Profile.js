@@ -5,12 +5,10 @@ import Link from '@material-ui/core/Link'
 
 function Profile({ posts }) {
     return (
-        <>
+        <div className='profile'>
             <NavBar />
-            <div className="profile">
-                <PostList posts={posts}/>
-            </div>
-        </>
+            <PostList posts={posts}/>
+        </div>
     )
 }
 

@@ -7,32 +7,36 @@ const useStyles = makeStyles({
     navBar: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'flex-start',
         alignItems: 'center',
-        padding: '20px',
-        margin: 0
+        padding: '10px',
+        backgroundColor: 'inherit'
     },
     title: {
         color: 'white',
-        fontSize: '54px'
+        fontSize: '54px',
+        flexGrow: 1,
+        marginLeft: '10px'
     },
     navBtn: {
-        color: '#888888'
+        color: '#888888',
+        marginRight: '20px'
     },
     signupBtn: {
         backgroundColor: '#815A34',
-        color: 'white'
+        color: 'white',
+        marginRight: '10px'
     },
     body: {
-        // backgroundColor: 'white',
-        marginTop: '20px',
+        backgroundColor: 'rgb(0, 0, 0, .8)',
+        backgroundImage: 'url("/vinyl gif.gif")',
+        backgroundBlendMode: 'multiply',
+        backgroundSize: 'cover',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
         alignItems: 'flex-start',
-        padding: '10px',
         margin: 0,
-        color: 'white'
+        color: 'white',
+        height: '100vh'
     }
 })
 
@@ -43,23 +47,17 @@ function LandingPage() {
 
     return (
         <div>
-            <Grid container spacing={10} className={classes.navBar}>
-                <Grid item xs={6}>
+            <Grid container>
+                <Grid item xs={12} className={classes.navBar}>
                     <Typography varient="h1" className={classes.title}>
                         📦Crate.
                     </Typography>
-                </Grid>
-                <Grid item xs={2}>
                     <Button className={classes.navBtn}>
                         Learn More
                     </Button>
-                </Grid>
-                <Grid item xs={2}>
                     <Button href="/login" className={classes.navBtn}>
                         Login
                     </Button>
-                </Grid>
-                <Grid item xs={2}>
                     <Button href="/signup" variant="contained" className={classes.signupBtn}>
                         Sign Up
                     </Button>
@@ -80,8 +78,10 @@ function LandingPage() {
                         A community of crate diggers.
                     </Typography>
                 </Grid>
+                <br />
+                <br />
                 <Grid item xs={12}>
-                    <Button href="/signup" variant="contained" className={classes.signupBtn} style={{padding: "20px", width: "30%", marginTop: "20px"}}>
+                    <Button href="/signup" variant="contained" className={classes.signupBtn} style={{padding: "20px", width: "30%"}}>
                         Try for Free
                     </Button>
                 </Grid>
