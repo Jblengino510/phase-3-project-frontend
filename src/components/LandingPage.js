@@ -27,16 +27,18 @@ const useStyles = makeStyles({
         marginRight: '10px'
     },
     body: {
-        backgroundColor: 'rgb(0, 0, 0, .8)',
-        backgroundImage: 'url("/vinyl gif.gif")',
-        backgroundBlendMode: 'multiply',
-        backgroundSize: 'cover',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
         margin: 0,
         color: 'white',
         height: '100vh'
+    },
+    LandingPage: {
+        backgroundColor: 'rgb(0, 0, 0, .8)',
+        backgroundImage: 'url("/vinyl gif.gif")',
+        backgroundBlendMode: 'multiply',
+        backgroundSize: 'cover',
     }
 })
 
@@ -46,7 +48,7 @@ function LandingPage() {
 
 
     return (
-        <div>
+        <div className={classes.LandingPage}>
             <Grid container>
                 <Grid item xs={12} className={classes.navBar}>
                     <Typography varient="h1" className={classes.title}>
