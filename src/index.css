@@ -16,17 +16,6 @@ body {
   background-color: #333;
 }
 
-.signUpForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items:center;
-  margin: 20 auto;
-  height: 100vh;
-  background-color: #333;
-  background-size: cover;
-}
-
 .postForm {
   display: flex;
   flex-direction: column;

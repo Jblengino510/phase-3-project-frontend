@@ -1,7 +1,45 @@
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography'
+import Divider from '@material-ui/core/Divider';
 import { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
+import { makeStyles } from '@material-ui/core'
+
+const useStyles = makeStyles({
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        height: '100vh',
+        color: 'white'
+    },
+    loginForm: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '30%',
+        marginTop: '100px'
+    },
+    btn: {
+        backgroundColor: '#815A34',
+        padding: '25px',
+        width: '30%',
+        color: 'white' 
+    }, 
+    divider: {
+        backgroundColor: '#252525',
+        width: '5%',
+        height: '3px',
+        marginTop: '40px'
+    },
+    signUpText: {
+        '&:hover': {cursor: 'pointer', color: 'white'},
+        color: '#815A34',
+    }
+})
+
 
 function Login() {
     const [ oneUser, setOneUser ] = useState({})
@@ -9,6 +47,7 @@ function Login() {
         user_name: ""
     })
     const history = useHistory()
+    const classes = useStyles()
 
     useEffect(() => {
         fetch('http://localhost:9292/users/1')
@@ -33,9 +72,12 @@ function Login() {
 
 
     return (
-        <div className="signUpForm">
-            <h1 style={{color: 'white'}}>Login with your Username</h1>
-            <form onSubmit={handleLoginSubmit}>
+        <div className={classes.container}>
+            <Typography variant='h3' style={{color: 'white', marginTop: '100px'}}>
+                Login with your Username
+            </Typography>
+            <Divider className={classes.divider}/>
+            <form onSubmit={handleLoginSubmit} className={classes.loginForm}>
                 <TextField 
                 id="standard-full-width"
                 fullWidth
@@ -50,13 +92,18 @@ function Login() {
                 <br></br>
                 <br></br>
                 <Button 
+                className={classes.btn}
                 variant="contained"
-                style={{backgroundColor: '#815A34', color: 'white'}}
                 type="submit"
                 >
-                    Login
+                    <strong>Login</strong>
                 </Button>
             </form>
+            <Typography variant='body1' style={{marginTop: '20px'}}>
+                <strong>Don't have an account?</strong>
+                &nbsp;
+                <strong className={classes.signUpText} onClick={() => history.push('/signup')}>Sign Up</strong>
+            </Typography>
         </div>
     )
 }

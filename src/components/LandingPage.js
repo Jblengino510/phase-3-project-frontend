@@ -50,6 +50,7 @@ const useStyles = makeStyles({
     }
 })
 
+
 function LandingPage() {
     const classes = useStyles()
 
@@ -59,7 +60,7 @@ function LandingPage() {
             <Grid container>
                 <Grid item xs={12} className={classes.navBar}>
                     <Link to='/' className={classes.title}>
-                        <img src='/dvd.png' alt='Crate. logo' style={{height: '100px', width: '100px'}}/>
+                        <img src='/dvd.png' alt='Crate. logo' style={{height: '80px', width: '80px'}}/>
                         <Typography variant="h2">Crate.</Typography>
                     </Link>
                     <Button className={classes.navBtn}>

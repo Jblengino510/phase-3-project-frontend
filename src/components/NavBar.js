@@ -48,7 +48,7 @@ function NavBar() {
             <AppBar className={classes.navBar} elevation={0}>
                 <Toolbar>
                     <Link to='/' className={classes.title}>
-                        <img src='/dvd.png' alt='Crate. logo' style={{height: '100px', width: '100px'}}/>
+                        <img src='/dvd.png' alt='Crate. logo' style={{height: '80px', width: '80px'}}/>
                         <Typography variant="h2">Crate.</Typography>
                     </Link>
                     <Button className={classes.navBtn}>
