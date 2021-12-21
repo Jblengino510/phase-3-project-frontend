@@ -19,7 +19,11 @@ const useStyles = makeStyles({
     },
     navBtn: {
         color: '#888888',
-        marginRight: '20px'
+        marginRight: '20px',
+        '&:hover': {cursor: 'pointer', color: 'white', borderBottom: '3px solid #815A34'}
+    },
+    accountBtn: {
+        '&:hover': {cursor: 'pointer', color: 'white', borderBottom: '3px solid #252525'}
     },
     navBar: {
         backgroundColor: '#252525',
@@ -64,6 +68,7 @@ function NavBar() {
                         aria-controls="menu-appbar"
                         aria-haspopup="true"
                         color="inherit"
+                        className={classes.accountBtn}
                     >
                         <AccountCircle fontSize="large"/>
                     </IconButton>

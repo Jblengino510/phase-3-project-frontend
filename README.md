@@ -1,4 +1,4 @@
-# Crate.📦
+# <img src='public/dvd.png' alt='Crate. logo' height='50px' width='50px'/>Crate.
 
 Crate. is an online community where vinyl enthusiasts can share their love for music with others.
 

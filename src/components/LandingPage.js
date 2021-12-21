@@ -26,7 +26,8 @@ const useStyles = makeStyles({
     },
     navBtn: {
         color: '#888888',
-        marginRight: '20px'
+        marginRight: '20px',
+        '&:hover': {cursor: 'pointer', color: 'white', borderBottom: '3px solid #815A34'}
     },
     signupBtn: {
         backgroundColor: '#815A34',
