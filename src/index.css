@@ -33,16 +33,6 @@ body {
   background-size: cover;
 }
 
-.postCard {
-  margin: 0 auto;
-  padding: 10px;
-  width: 450px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 5px 5px 5px rgb(27, 27, 27);
-}
 
 .cardDetails {
   margin: 200px 200px auto;
@@ -71,6 +61,7 @@ img {
   height: 350px;
   border-radius: 0px;
 }
+
 
 .footer {
   display: flex;
