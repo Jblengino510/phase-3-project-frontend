@@ -5,14 +5,60 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 import { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core'
+
+const useStyles = makeStyles({
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    cardDetails: {
+        backgroundColor: '#444',
+        padding: '50px',
+        paddingTop: '100px',
+        borderRadius: '0px',
+        marginTop: '200px',
+        width: '75%'
+    },
+    image: {
+        width: '350px',
+        height: '350px',
+        borderRadius: '0px'
+    },
+    info: {
+        marginTop: '180px',
+        display: 'flex',
+        flexDirection: 'row'
+    },
+    btn: {
+        backgroundColor: '#815A34',
+        color: 'white',
+        marginLeft: '50px'
+    },
+    tracks: {
+        backgroundColor: '#444',
+        marginTop: '20px',
+        width: '1000px',
+        fontSize: '24px',
+        display: 'flex',
+        alignItems: 'start'
+    }
+})
+
 
 function PostDetails({ setPosts }) {
     const [ post, setPost ] = useState({})
     const params = useParams()
     const history = useHistory()
+    const classes = useStyles()
 
     //Fetches post by Id
     useEffect(() => {
@@ -37,28 +83,38 @@ function PostDetails({ setPosts }) {
     
 
     return (
-        <div className="detailsWrapper">
+        <div className={classes.container}>
             <NavBar />
-                <Card  className="cardDetails" style={{backgroundColor: '#444444'}} elevation={6}>
-                    <CardHeader 
-                        title={post.album_name}
-                    />
-                    <img src={post.image_url} alt={post.album_name}/>
-                    <h3>{post.artist}</h3>
-                    <Button variant="contained" style={{backgroundColor: '#815A34', color: 'white'}}>
-                        {post.genre}
-                    </Button>
-                    <ol>
-                        { eachTrack ? eachTrack.map(track => <li>{track}</li>) : null }
-                    </ol>
-                    <span>
-                        <IconButton aria-label="edit">
-                            <EditIcon />
-                        </IconButton>
-                        <IconButton style={{marginLeft: '100px'}} onClick={handleDelete} aria-label="delete">
-                            <DeleteIcon />
-                        </IconButton>
-                    </span>
+                <Card className={classes.cardDetails} elevation={6}>
+                    <Grid container>
+                        <Grid item xs={4}>
+                            <CardMedia component='image' image={post.image_url} className={classes.image}/>
+                        </Grid>
+                        <Grid item xs={8}>
+                            <div>
+                                <Typography variant='h3'>
+                                    {post.album_name}
+                                </Typography>
+                            </div>
+                            <div className={classes.info}>
+                                <Typography variant='h4'>
+                                    <em>{post.artist}</em>
+                                </Typography>
+                                <Button variant="contained" className={classes.btn}>
+                                    {post.genre}
+                                </Button>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Card>
+                <Card className={classes.tracks} elevation={6}>
+                    <Grid container>
+                        <Grid item xs={12}>
+                            <ol>
+                                {eachTrack ? eachTrack.map(track => <li>{track}</li>) : null}
+                            </ol>
+                        </Grid>
+                    </Grid>
                 </Card>
         </div>
     )
