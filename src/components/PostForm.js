@@ -1,7 +1,34 @@
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography'
+import Divider from '@material-ui/core/Divider';
 import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core'
+
+const useStyles = makeStyles({
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        height: '100vh',
+        color: 'white'
+    },
+    postForm: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '30%'
+    },
+    divider: {
+        backgroundColor: '#252525',
+        width: '5%',
+        height: '3px',
+        marginTop: '40px',
+        marginBottom: '40px'
+    },
+})
 
 function PostForm({ posts, setPosts }) {
     const [ postData, setPostData ] = useState({
@@ -13,6 +40,7 @@ function PostForm({ posts, setPosts }) {
 
     })
     const history = useHistory()
+    const classes = useStyles()
 
     function handleFormChange(e){
         setPostData({
@@ -42,9 +70,12 @@ function PostForm({ posts, setPosts }) {
     }
 
     return (
-        <div className="postForm">
-            <h1 style={{color: 'white'}}>Add to your Crate</h1>
-            <form onSubmit={handlePostSubmit}>
+        <div className={classes.container}>
+            <Typography variant='h3' style={{color: 'white', marginTop: '100px'}}>
+                Add to your Crate
+            </Typography>
+            <Divider className={classes.divider}/>
+            <form onSubmit={handlePostSubmit} className={classes.postForm}>
                 <TextField 
                 id="standard-full-width"
                 fullWidth
@@ -56,8 +87,8 @@ function PostForm({ posts, setPosts }) {
                 onChange={handleFormChange}
                 required
                 />
-                <br></br>
-                <br></br>
+                <br />
+                <br />
                 <TextField 
                 id="standard-full-width"
                 fullWidth
@@ -69,8 +100,8 @@ function PostForm({ posts, setPosts }) {
                 onChange={handleFormChange}
                 required
                 />
-                <br></br>
-                <br></br>
+                <br />
+                <br />
                 <TextField 
                 id="standard-full-width"
                 fullWidth
@@ -82,8 +113,8 @@ function PostForm({ posts, setPosts }) {
                 onChange={handleFormChange}
                 required
                 />
-                <br></br>
-                <br></br>
+                <br />
+                <br />
                 <TextField 
                 id="standard-full-width"
                 fullWidth
@@ -95,8 +126,8 @@ function PostForm({ posts, setPosts }) {
                 onChange={handleFormChange}
                 required
                 />
-                <br></br>
-                <br></br>
+                <br />
+                <br />
                 <TextField 
                 id="standard-full-width"
                 fullWidth
@@ -108,8 +139,8 @@ function PostForm({ posts, setPosts }) {
                 onChange={handleFormChange}
                 required
                 />
-                <br></br>
-                <br></br>
+                <br />
+                <br />
                 <Button 
                 variant="contained"
                 style={{backgroundColor: '#815A34', color: 'white'}}
