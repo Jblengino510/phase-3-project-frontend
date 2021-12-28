@@ -17,6 +17,23 @@ body {
 }
 
 
+.modalForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  min-height: 500px;
+  background-color: #252525;
+  box-shadow: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+
 .profile {
   height: 100vh;
   background-color: #333;

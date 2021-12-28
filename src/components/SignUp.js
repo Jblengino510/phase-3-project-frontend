@@ -85,8 +85,8 @@ function SignUp({ setAllUsers }) {
                 onChange={handleFormChange}
                 required
                 />
-                <br></br>
-                <br></br>
+                <br />
+                <br />
                 <Button type="submit" variant="contained" className={classes.btn}>
                     Sign Up
                 </Button>
