@@ -40,7 +40,7 @@ const useStyles = makeStyles({
     }
 })
 
-function SignUp({ setAllUsers }) {
+function SignUp({ setLoggedInUser }) {
     const [ formData, setFormData ] = useState({
         user_name: ""
     })
@@ -63,8 +63,11 @@ function SignUp({ setAllUsers }) {
             body: JSON.stringify(formData)
         })
         .then(res => res.json())
-        .then(setAllUsers)
-        history.push("/profile")
+        .then(data => {
+            setLoggedInUser(data)
+            localStorage.setItem('user', JSON.stringify(data))
+            history.push("/profile")
+        })
     }
 
     return (

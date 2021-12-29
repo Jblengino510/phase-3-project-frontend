@@ -15,7 +15,7 @@ import '@fontsource/roboto'
 
 
 function App() {
-  const [ allUsers, setAllUsers ] = useState([])
+  const [ loggedInUser, setLoggedInUser ] = useState(null)
   const [ posts, setPosts ] = useState([])
   const [ loading, setLoading ] = useState(false)
 
@@ -28,15 +28,6 @@ function App() {
       }
     })
   }, [])
-  // console.log(posts)
-
-  useEffect(() => {
-    fetch('http://localhost:9292/users')
-    .then(res => res.json())
-    .then(setAllUsers)
-    setLoading(true)
-  }, [])
-  // console.log(allUsers)
 
   
   
@@ -44,16 +35,16 @@ function App() {
       <div>
           <Switch>
             <Route path="/signup">
-                <SignUp setAllUsers={setAllUsers}/>
+                <SignUp setLoggedInUser={setLoggedInUser}/>
             </Route>
             <Route path="/login">
-                <Login />
+                <Login setLoggedInUser={setLoggedInUser}/>
             </Route>
             <Route path="/profile">
-                <Profile posts={posts}/>
+                <Profile posts={posts} setLoggedInUser={setLoggedInUser}/>
             </Route>
             <Route path="/posts/:id">
-                <PostDetails setPosts={setPosts} />
+                <PostDetails setPosts={setPosts} setLoggedInUser={setLoggedInUser}/>
             </Route>
             <Route path="/submit">
                 <PostForm posts={posts} setPosts={setPosts}/>

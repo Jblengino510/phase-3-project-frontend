@@ -65,7 +65,7 @@ const useStyles = makeStyles({
 })
 
 
-function PostDetails({ setPosts }) {
+function PostDetails({ setPosts, setLoggedInUser }) {
     const [ post, setPost ] = useState({})
     const [ open, setOpen ] = useState(false)
     const [ albumName, setAlbumeName ] = useState('')
@@ -76,6 +76,8 @@ function PostDetails({ setPosts }) {
     const params = useParams()
     const history = useHistory()
     const classes = useStyles()
+
+    let eachTrack = post.tracklist ? post.tracklist.split(",") : []
 
     //Fetches post by Id
     useEffect(() => {
@@ -97,13 +99,22 @@ function PostDetails({ setPosts }) {
         }
     }
 
-    let eachTrack = post.tracklist ? post.tracklist.split(",") : []
+    // function handleEditPost() {
+    //     const postObj = {
+    //         user_id: user.id
+    //         album_name: albumName,
+    //         image_url: imageUrl,
+    //         genre: genre,
+    //         artist: artist,
+    //         tracklist: tracklist
+    //     }
+    // }
   
     
 
     return (
         <div className={classes.container}>
-            <NavBar />
+            <NavBar setLoggedInUser={setLoggedInUser}/>
                 <Card className={classes.card} elevation={6}>
                     <Grid container>
                         <Grid item xs={5}>

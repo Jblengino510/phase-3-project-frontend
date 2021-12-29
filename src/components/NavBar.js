@@ -34,11 +34,13 @@ const useStyles = makeStyles({
 
 
 
-function NavBar() {
+function NavBar({ setLoggedInUser }) {
     const classes = useStyles()
     const history = useHistory()
 
     function handleLogout() {
+        setLoggedInUser(null)
+        localStorage.clear()
         history.push('/')
     }
 

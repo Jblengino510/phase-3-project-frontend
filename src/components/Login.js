@@ -41,19 +41,12 @@ const useStyles = makeStyles({
 })
 
 
-function Login() {
-    const [ oneUser, setOneUser ] = useState({})
+function Login({ setLoggedInUser }) {
     const [ formData, setFormData ] = useState({
         user_name: ""
     })
     const history = useHistory()
     const classes = useStyles()
-
-    useEffect(() => {
-        fetch('http://localhost:9292/users/1')
-        .then(res => res.json())
-        .then(setOneUser)
-    }, [])
     
 
     function handleFormChange(e) {
@@ -62,12 +55,20 @@ function Login() {
         })
     }
 
-    function handleLoginSubmit() {
-        if(formData.user_name === oneUser.user_name){
-            history.push('/profile')
-        } else {
-            alert("Wrong username")
-        }
+    function handleLoginSubmit(e) {
+        e.preventDefault()
+        fetch('http://localhost:9292/users')
+        .then(res => res.json())
+        .then(data => {
+            if (data.map(user => user.user_name).includes(formData.user_name)) {
+                setLoggedInUser(data.filter(user => user.user_name === formData.user_name))
+                localStorage.setItem('user', JSON.stringify(data.filter(user => user.user_name === formData.user_name)))
+                history.push("/profile")
+            }
+            else {
+                window.alert('Username does not exist')
+            }
+        })
     }
 
 

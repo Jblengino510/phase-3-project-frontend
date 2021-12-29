@@ -52,7 +52,7 @@ const useStyles = makeStyles({
 
 function LandingPage() {
     const classes = useStyles()
-
+    
 
     return (
         <div className={classes.landingPage}>
