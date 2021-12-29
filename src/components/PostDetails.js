@@ -68,11 +68,11 @@ const useStyles = makeStyles({
 function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
     const [ post, setPost ] = useState({})
     const [ open, setOpen ] = useState(false)
-    const [ albumName, setAlbumeName ] = useState('')
-    const [ imageUrl, setImageUrl ] = useState('')
-    const [ artist, setArtist ] = useState('')
-    const [ genre, setGenre ] = useState('')
-    const [ tracklist, setTracklist ] = useState('')
+    const [ albumName, setAlbumName ] = useState(post.album_name)
+    const [ imageUrl, setImageUrl ] = useState(post.image_url)
+    const [ artist, setArtist ] = useState(post.artist)
+    const [ genre, setGenre ] = useState(post.genre)
+    const [ tracklist, setTracklist ] = useState(post.tracklist)
     const params = useParams()
     const history = useHistory()
     const classes = useStyles()
@@ -99,17 +99,22 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
         }
     }
 
-    // function handleEditPost() {
-    //     const postObj = {
-    //         user_id: user.id
-    //         album_name: albumName,
-    //         image_url: imageUrl,
-    //         genre: genre,
-    //         artist: artist,
-    //         tracklist: tracklist
-    //     }
-    // }
-  
+    function handleEditPost() {
+        const postObj = {
+            album_name: albumName,
+            image_url: imageUrl,
+            genre: genre,
+            artist: artist,
+            tracklist: tracklist
+        }
+        fetch(`http://localhost:9292/posts/${params.id}`, {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(postObj)
+        })
+        .then(res => res.json())
+        .then(editedPost => setPosts(editedPost))
+    }
     
 
     return (
@@ -167,7 +172,7 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                         <IconButton edge='end' onClick={() => setOpen(false)} style={{marginLeft: '370px', marginTop: '10px'}}>
                             <CloseIcon fontSize='medium'/>
                         </IconButton>
-                        <form className={classes.editForm}>
+                        <form onSubmit={handleEditPost} className={classes.editForm}>
                             <TextField 
                             id="standard-full-width"
                             fullWidth
@@ -175,8 +180,7 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                             variant="outlined"
                             color="secondary"
                             name="album_name"
-                            value={post.album_name}
-                            onChange={(e) => setAlbumeName(e.target.value)}
+                            onChange={(e) => setAlbumName(e.target.value)}
                             required
                             />
                             <br />
@@ -188,7 +192,6 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                             variant="outlined"
                             color="secondary"
                             name="image_url"
-                            value={post.image_url}
                             onChange={(e) => setImageUrl(e.target.value)}
                             required
                             />
@@ -201,7 +204,6 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                             variant="outlined"
                             color="secondary"
                             name="artist"
-                            value={post.artist}
                             onChange={(e) => setArtist(e.target.value)}
                             required
                             />
@@ -214,7 +216,6 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                             variant="outlined"
                             color="secondary"
                             name="genre"
-                            value={post.genre}
                             onChange={(e) => setGenre(e.target.value)}
                             required
                             />
@@ -227,7 +228,6 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                             variant="outlined"
                             color="secondary"
                             name="tracklist"
-                            value={post.tracklist}
                             onChange={(e) => setTracklist(e.target.value)}
                             required
                             />
