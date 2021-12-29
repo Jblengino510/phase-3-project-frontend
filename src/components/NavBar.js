@@ -5,6 +5,7 @@ import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Typography from '@material-ui/core/Typography'
+import AddIcon from '@material-ui/icons/Add';
 import { Link } from "react-router-dom"
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core';
@@ -25,6 +26,11 @@ const useStyles = makeStyles({
     accountBtn: {
         '&:hover': {cursor: 'pointer', color: 'white', borderBottom: '3px solid #252525'}
     },
+    postBtn: {
+        color: 'white',
+        backgroundColor: '#815A34',
+        marginRight: '10px'
+    },
     navBar: {
         backgroundColor: '#252525',
         width: '100%',
@@ -34,14 +40,16 @@ const useStyles = makeStyles({
 
 
 
-function NavBar({ setLoggedInUser }) {
+function NavBar({ loggedInUser, setLoggedInUser }) {
     const classes = useStyles()
     const history = useHistory()
 
     function handleLogout() {
-        setLoggedInUser(null)
-        localStorage.clear()
-        history.push('/')
+        if (window.confirm('Are you sure you want to logout?')){
+            setLoggedInUser(null)
+            localStorage.clear()
+            history.push('/')
+        }
     }
 
     function handleProfileClick() {
@@ -57,11 +65,17 @@ function NavBar({ setLoggedInUser }) {
                         <img src='/dvd.png' alt='Crate. logo' style={{height: '80px', width: '80px'}}/>
                         <Typography variant="h2">Crate.</Typography>
                     </Link>
+                    <Button href='dig' className={classes.navBtn}>
+                        Dig
+                    </Button>
                     <Button className={classes.navBtn}>
                         Learn More
                     </Button>
                     <Button onClick={() => handleLogout()} className={classes.navBtn}>
                         Logout
+                    </Button>
+                    <Button href='/submit' variant='contained' startIcon={<AddIcon />} className={classes.postBtn}>
+                        Post
                     </Button>
                     <IconButton
                         onClick={() => handleProfileClick()}

@@ -9,7 +9,7 @@ function Profile({ posts, loggedInUser, setLoggedInUser }) {
         <Grid item xs={12} md={6} lg={4} key={post.id}><PostCard post={post} /></Grid>)
     return (
         <div className='profile'>
-            <NavBar setLoggedInUser={setLoggedInUser}/>
+            <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
             <Grid container spacing={10} style={{marginTop: '150px'}}>
                 {renderedUserPosts}
             </Grid>

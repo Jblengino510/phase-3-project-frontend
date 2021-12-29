@@ -1,4 +1,5 @@
 import PostCard from './PostCard'
+import NavBar from './NavBar'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core'
 
@@ -11,17 +12,20 @@ const useStyles = makeStyles({
 })
 
 
-function PostList({ posts }) {
+function PostList({ posts, loggedInUser, setLoggedInUser }) {
     const classes = useStyles()
     const renderedPosts = posts.map(post => 
         <Grid item xs={12} md={6} lg={4} key={post.id}><PostCard post={post} /></Grid>)
 
     return (
-            <div className={classes.postListContainer}>
+            <>
+                <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
+                <div className={classes.postListContainer}>
                     <Grid container spacing={10}>
-                        {renderedPosts}
+                            {renderedPosts}
                     </Grid>
-            </div>
+                </div>
+            </>
     )
 }
 

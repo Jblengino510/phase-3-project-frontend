@@ -6,6 +6,7 @@ import Login from './Login'
 import Profile from './Profile'
 import PostForm from './PostForm'
 import PostDetails from './PostDetails'
+import PostList from './PostList'
 import { useState, useEffect } from "react"
 import { Switch, Route } from "react-router-dom"
 import { createTheme, ThemeProvider } from '@material-ui/core/styles'
@@ -15,7 +16,7 @@ import '@fontsource/roboto'
 
 
 function App() {
-  const [ loggedInUser, setLoggedInUser ] = useState(null)
+  const [ loggedInUser, setLoggedInUser ] = useState(localStorage.getItem('user'))
   const [ posts, setPosts ] = useState([])
   const [ loading, setLoading ] = useState(false)
 
@@ -34,6 +35,9 @@ function App() {
   return (
       <div>
           <Switch>
+            <Route path='/dig'>
+              <PostList posts={posts} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
+            </Route>
             <Route path="/signup">
                 <SignUp setLoggedInUser={setLoggedInUser}/>
             </Route>
