@@ -41,7 +41,7 @@ function App() {
                 <Login setLoggedInUser={setLoggedInUser}/>
             </Route>
             <Route path="/profile">
-                <Profile posts={posts} setLoggedInUser={setLoggedInUser}/>
+                <Profile posts={posts} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
             </Route>
             <Route path="/posts/:id">
                 <PostDetails setPosts={setPosts} setLoggedInUser={setLoggedInUser}/>

@@ -54,7 +54,8 @@ function SignUp({ setLoggedInUser }) {
         })
     }
 
-    function handleSignUpSubmit() {
+    function handleSignUpSubmit(e) {
+        e.preventDefault()
         fetch('http://localhost:9292/users', {
             method: "POST",
             headers: {

@@ -60,9 +60,10 @@ function Login({ setLoggedInUser }) {
         fetch('http://localhost:9292/users')
         .then(res => res.json())
         .then(data => {
+            const localUser = data.filter(user => user.user_name === formData.user_name)
             if (data.map(user => user.user_name).includes(formData.user_name)) {
-                setLoggedInUser(data.filter(user => user.user_name === formData.user_name))
-                localStorage.setItem('user', JSON.stringify(data.filter(user => user.user_name === formData.user_name)))
+                setLoggedInUser(localUser[0])
+                localStorage.setItem('user', JSON.stringify(localUser[0]))
                 history.push("/profile")
             }
             else {
