@@ -1,4 +1,3 @@
-import Layout from './Layout';
 import LandingPage from './LandingPage';
 import NavBar from './NavBar'
 import SignUp from './SignUp';
@@ -16,7 +15,7 @@ import '@fontsource/roboto'
 
 
 function App() {
-  const [ loggedInUser, setLoggedInUser ] = useState(localStorage.getItem('user'))
+  const [ loggedInUser, setLoggedInUser ] = useState(JSON.parse(localStorage.getItem('user')))
   const [ posts, setPosts ] = useState([])
   const [ loading, setLoading ] = useState(false)
 
@@ -48,7 +47,7 @@ function App() {
                 <Profile posts={posts} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
             </Route>
             <Route path="/posts/:id">
-                <PostDetails setPosts={setPosts} setLoggedInUser={setLoggedInUser}/>
+                <PostDetails setPosts={setPosts} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
             </Route>
             <Route path="/submit">
                 <PostForm posts={posts} setPosts={setPosts}/>

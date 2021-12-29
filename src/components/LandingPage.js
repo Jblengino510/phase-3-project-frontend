@@ -79,7 +79,7 @@ function LandingPage({ loggedInUser, setLoggedInUser }) {
                         <img src='/dvd.png' alt='Crate. logo' style={{height: '80px', width: '80px'}}/>
                         <Typography variant="h2">Crate.</Typography>
                     </Link>
-                    <Button href='dig' className={classes.navBtn}>
+                    <Button href='/dig' className={classes.navBtn}>
                         Dig
                     </Button>
                     <Button className={classes.navBtn}>

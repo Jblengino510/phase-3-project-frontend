@@ -65,7 +65,7 @@ const useStyles = makeStyles({
 })
 
 
-function PostDetails({ setPosts, setLoggedInUser }) {
+function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
     const [ post, setPost ] = useState({})
     const [ open, setOpen ] = useState(false)
     const [ albumName, setAlbumeName ] = useState('')
@@ -114,7 +114,7 @@ function PostDetails({ setPosts, setLoggedInUser }) {
 
     return (
         <div className={classes.container}>
-            <NavBar setLoggedInUser={setLoggedInUser}/>
+            <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
                 <Card className={classes.card} elevation={6}>
                     <Grid container>
                         <Grid item xs={5}>
@@ -135,6 +135,7 @@ function PostDetails({ setPosts, setLoggedInUser }) {
                                 </div>
                             </CardContent>
                         </Grid>
+                        {loggedInUser.id === post.user_id ? 
                         <Grid item xs={12}>
                             <IconButton edge='end' onClick={() => setOpen(true)}>
                                 <EditIcon fontSize='large'/>
@@ -142,7 +143,10 @@ function PostDetails({ setPosts, setLoggedInUser }) {
                             <IconButton edge='end' onClick={handleDelete} style={{marginLeft: '10px'}}>
                                 <DeleteIcon fontSize='large'/>
                             </IconButton>
-                        </Grid>
+                        </Grid> 
+                        :
+                        null
+                        }
                     </Grid>
                 </Card>
                 <Card className={classes.tracks} elevation={6}>
