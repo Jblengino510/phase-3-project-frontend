@@ -1,8 +1,10 @@
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import { makeStyles } from '@material-ui/core'
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
 const useStyles = makeStyles({
     navBar: {
@@ -32,6 +34,11 @@ const useStyles = makeStyles({
         color: 'white',
         marginRight: '20px'
     },
+    accountBtn: {
+        color: 'white',
+        marginRight: '10px',
+        '&:hover': {cursor: 'pointer', color: 'white', borderBottom: '3px solid #252525'}
+    },
     body: {
         display: 'flex',
         flexDirection: 'column',
@@ -50,12 +57,51 @@ const useStyles = makeStyles({
 })
 
 
-function LandingPage() {
+function LandingPage({ loggedInUser, setLoggedInUser }) {
     const classes = useStyles()
+    const history = useHistory()
+
+    function handleLogout() {
+        if (window.confirm('Are you sure you want to logout?')){
+            setLoggedInUser(null)
+            localStorage.clear()
+            history.push('/')
+        }
+    }
     
 
     return (
         <div className={classes.landingPage}>
+            {loggedInUser ? 
+            <Grid container>
+                <Grid item xs={12} className={classes.navBar}>
+                    <Link to='/' className={classes.title}>
+                        <img src='/dvd.png' alt='Crate. logo' style={{height: '80px', width: '80px'}}/>
+                        <Typography variant="h2">Crate.</Typography>
+                    </Link>
+                    <Button href='dig' className={classes.navBtn}>
+                        Dig
+                    </Button>
+                    <Button className={classes.navBtn}>
+                        Learn More
+                    </Button>
+                    <Button onClick={() => handleLogout()} className={classes.navBtn}>
+                        Logout
+                    </Button>
+                    <IconButton
+                        onClick={() => history.push('/profile')}
+                        edge="end"
+                        aria-label="account of current user"
+                        aria-controls="menu-appbar"
+                        aria-haspopup="true"
+                        color="inherit"
+                        className={classes.accountBtn}
+                    >
+                        <AccountCircle fontSize="large"/>
+                    </IconButton>
+                </Grid>
+            </Grid>
+            :
             <Grid container>
                 <Grid item xs={12} className={classes.navBar}>
                     <Link to='/' className={classes.title}>
@@ -73,6 +119,7 @@ function LandingPage() {
                     </Button>
                 </Grid>
             </Grid>
+            }
             <Grid container spacing={10} className={classes.body}>
                 <Grid item xs={12}>
                     <Typography varient='h1' style={{fontSize: '100px'}}>

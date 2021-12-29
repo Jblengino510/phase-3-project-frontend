@@ -54,7 +54,7 @@ function App() {
                 <PostForm posts={posts} setPosts={setPosts}/>
             </Route>
             <Route path="/">
-              <LandingPage /> 
+              <LandingPage loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/> 
             </Route>
           </Switch>
       </div>
