@@ -25,7 +25,7 @@ function PostList({ posts, loggedInUser, setLoggedInUser }) {
             <>
                 <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
                 <div className={classes.postListContainer}>
-                    <Grid container spacing={10}>
+                    <Grid container spacing={5}>
                         {renderedPosts}
                     </Grid>
                 </div>

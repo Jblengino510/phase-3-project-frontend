@@ -21,7 +21,6 @@ const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        flexGrow: 1,
         marginLeft: '10px'
     },
     navBtn: {
@@ -79,6 +78,7 @@ function LandingPage({ loggedInUser, setLoggedInUser }) {
                         <img src='/dvd.png' alt='Crate. logo' style={{height: '80px', width: '80px'}}/>
                         <Typography variant="h2">Crate.</Typography>
                     </Link>
+                    <div style={{flexGrow: 1}}></div>
                     <Button href='/dig' className={classes.navBtn}>
                         Dig
                     </Button>
@@ -108,6 +108,7 @@ function LandingPage({ loggedInUser, setLoggedInUser }) {
                         <img src='/dvd.png' alt='Crate. logo' style={{height: '80px', width: '80px'}}/>
                         <Typography variant="h2">Crate.</Typography>
                     </Link>
+                    <div style={{flexGrow: 1}}></div>
                     <Button className={classes.navBtn}>
                         Learn More
                     </Button>

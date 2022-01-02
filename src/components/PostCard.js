@@ -9,20 +9,18 @@ const useStyles = makeStyles({
     btn: {
         backgroundColor: '#815A34',
         color: 'white',
-        marginBottom: '20px'
+        marginBottom: '20px',
+        width: '50%'
     },
     card: {
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 'auto',
-        width: '450px',
-        padding: '10px',
-        boxShadow: '5px 5px 5px rgb(27, 27, 27)',
-        backgroundColor: '#444',
+        justifyContent: 'start',
+        width: '300px',
+        backgroundColor: 'inherit',
         borderRadius: '0px',
-        '&:hover': {backgroundColor: 'rgba(0, 0, 0, .1)', backgroundBlendMode: 'multiply'}
+        color: 'white',
+        // '&:hover': {backgroundColor: 'rgba(0, 0, 0, .1)', backgroundBlendMode: 'multiply'}
     }
 })
 
@@ -33,20 +31,25 @@ function PostCard({ post }) {
 
 
     return (
-            <Link to={`/posts/${id}`}>
-                <div>
-                    <Card className={classes.card} elevation={6}>
-                        <CardHeader 
-                        title={album_name}
-                        />
+            <div style={{width: '250px'}}>
+                <Link to={`/posts/${id}`}>
+                    <Card className={classes.card} elevation={0}>
                         <img src={image_url} alt={album_name}/>
-                        <h3>{artist}</h3>
+                        <br />
+                        <Typography variant="h6">
+                            <strong>{album_name}</strong>
+                        </Typography>
+                        <br />
+                        <Typography variant='body1'>
+                            <em>{artist}</em>
+                        </Typography>
+                        <br />
                         <Button variant="contained" className={classes.btn}>
                             {genre}
                         </Button>
                     </Card>
-                </div>
-            </Link>
+                </Link>
+            </div>
     )
 }
 

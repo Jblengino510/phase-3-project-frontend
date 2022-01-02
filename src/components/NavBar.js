@@ -15,8 +15,7 @@ const useStyles = makeStyles({
       color: 'white',
       display: 'flex',
       flexDirection: 'row',
-      alignItems: 'center',
-      flexGrow: 1
+      alignItems: 'center'
     },
     navBtn: {
         color: '#888888',
@@ -65,6 +64,7 @@ function NavBar({ loggedInUser, setLoggedInUser }) {
                         <img src='/dvd.png' alt='Crate. logo' style={{height: '80px', width: '80px'}}/>
                         <Typography variant="h2">Crate.</Typography>
                     </Link>
+                    <div style={{flexGrow: 1}}></div>
                     <Button href='/dig' className={classes.navBtn}>
                         Dig
                     </Button>
