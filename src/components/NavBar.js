@@ -31,7 +31,7 @@ const useStyles = makeStyles({
         marginRight: '10px'
     },
     navBar: {
-        backgroundColor: '#252525',
+        backgroundColor: '#181818',
         width: '100%',
         padding: '10px'
     }

@@ -16,8 +16,8 @@ const useStyles = makeStyles({
         alignItems: 'center'
     },
     container: {
-        marginTop: '150px',
-        backgroundColor: '#444',
+        marginTop: '100px',
+        backgroundColor: '#252525',
         width: '95%',
         display: 'flex',
         flexDirection: 'row',
@@ -36,6 +36,14 @@ const useStyles = makeStyles({
     arrows: {
         color: '#815A34',
         '&:hover': {cursor: 'pointer'}
+    },
+    menu: {
+        marginTop: '150px',
+        color: '#815A34',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'start',
+        alignItems: 'start'
     }
 })
 
@@ -53,6 +61,8 @@ function Profile({ posts, loggedInUser, setLoggedInUser }) {
     return (
         <div className={classes.page}>
             <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
+            <div className={classes.menu}>
+            </div>
             <Grid container spacing={5} className={classes.container}>
                 <Grid item xs={12} className={classes.title}>
                     <Typography variant='h4' style={{marginRight: '20px'}}>

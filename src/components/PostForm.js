@@ -12,7 +12,8 @@ const useStyles = makeStyles({
         flexDirection: 'column',
         alignItems: 'center',
         height: '100vh',
-        color: 'white'
+        color: 'white',
+        backgroundColor: 'black'
     },
     postForm: {
         display: 'flex',
@@ -80,11 +81,12 @@ function PostForm({ posts, setPosts }) {
                 id="standard-full-width"
                 fullWidth
                 label="Album Name" 
-                variant="outlined"
+                variant="filled"
                 color="secondary"
                 name="album_name"
                 value={postData.album_name}
                 onChange={handleFormChange}
+                style={{backgroundColor: 'white'}}
                 required
                 />
                 <br />
@@ -93,11 +95,12 @@ function PostForm({ posts, setPosts }) {
                 id="standard-full-width"
                 fullWidth
                 label="Image URL" 
-                variant="outlined"
+                variant="filled"
                 color="secondary"
                 name="image_url"
                 value={postData.image_url}
                 onChange={handleFormChange}
+                style={{backgroundColor: 'white'}}
                 required
                 />
                 <br />
@@ -106,11 +109,12 @@ function PostForm({ posts, setPosts }) {
                 id="standard-full-width"
                 fullWidth
                 label="Artist" 
-                variant="outlined"
+                variant="filled"
                 color="secondary"
                 name="artist"
                 value={postData.artist}
                 onChange={handleFormChange}
+                style={{backgroundColor: 'white'}}
                 required
                 />
                 <br />
@@ -119,11 +123,12 @@ function PostForm({ posts, setPosts }) {
                 id="standard-full-width"
                 fullWidth
                 label="Genre" 
-                variant="outlined"
+                variant="filled"
                 color="secondary"
                 name="genre"
                 value={postData.genre}
                 onChange={handleFormChange}
+                style={{backgroundColor: 'white'}}
                 required
                 />
                 <br />
@@ -132,11 +137,12 @@ function PostForm({ posts, setPosts }) {
                 id="standard-full-width"
                 fullWidth
                 label="Tracklist" 
-                variant="outlined"
+                variant="filled"
                 color="secondary"
                 name="tracklist"
                 value={postData.tracklist}
                 onChange={handleFormChange}
+                style={{backgroundColor: 'white'}}
                 required
                 />
                 <br />

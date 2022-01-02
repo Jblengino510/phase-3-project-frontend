@@ -12,7 +12,8 @@ const useStyles = makeStyles({
         flexDirection: 'column',
         alignItems: 'center',
         height: '100vh',
-        color: 'white'
+        color: 'white',
+        backgroundColor: 'black'
     },
     loginForm: {
         display: 'flex',
@@ -29,7 +30,7 @@ const useStyles = makeStyles({
         color: 'white' 
     }, 
     divider: {
-        backgroundColor: '#252525',
+        backgroundColor: '#3F3F3F',
         width: '5%',
         height: '3px',
         marginTop: '40px'
@@ -84,11 +85,12 @@ function Login({ setLoggedInUser }) {
                 id="standard-full-width"
                 fullWidth
                 label="Username" 
-                variant="outlined"
+                variant="filled"
                 color="secondary"
                 name="user_name"
                 value={formData.user_name}
                 onChange={handleFormChange}
+                style={{backgroundColor: 'white'}}
                 required
                 />
                 <br />
