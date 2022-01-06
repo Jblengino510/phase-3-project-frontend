@@ -24,7 +24,7 @@ body {
   transform: translate(-50%, -50%);
   width: 500px;
   min-height: 500px;
-  background-color: #252525;
+  background-color: black;
   box-shadow: 24px;
   display: flex;
   flex-direction: column;

@@ -4,10 +4,17 @@ import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles({
+    page: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     postListContainer: {
-        backgroundColor: '#333',
+        backgroundColor: '#252525',
         backgroundSize: 'cover',
-        marginTop: '150px'
+        marginTop: '150px',
+        width: '95%',
     }
 })
 
@@ -22,14 +29,14 @@ function PostList({ posts, loggedInUser, setLoggedInUser }) {
  
 
     return (
-            <>
+            <div className={classes.page}>
                 <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
                 <div className={classes.postListContainer}>
                     <Grid container spacing={5}>
                         {renderedPosts}
                     </Grid>
                 </div>
-            </>
+            </div>
     )
 }
 

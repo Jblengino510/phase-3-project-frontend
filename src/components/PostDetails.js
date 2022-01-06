@@ -23,7 +23,8 @@ const useStyles = makeStyles({
         alignItems: 'center',
     },
     card: {
-        backgroundColor: '#444',
+        backgroundColor: '#252525',
+        color: 'white',
         padding: '50px',
         paddingTop: '100px',
         borderRadius: '0px',
@@ -34,12 +35,11 @@ const useStyles = makeStyles({
         width: '350px',
         height: '350px',
         borderRadius: '0px',
-        // padding: '10px'
     },
     info: {
         display: 'flex',
         flexDirection: 'row',
-        marginTop: '45%'
+        marginTop: '100px'
     },
     btn: {
         backgroundColor: '#815A34',
@@ -47,13 +47,12 @@ const useStyles = makeStyles({
         marginLeft: '50px'
     },
     tracks: {
-        backgroundColor: '#444',
+        backgroundColor: '#252525',
+        color: 'white',
         borderRadius: '0px',
         marginTop: '20px',
         width: '1000px',
         fontSize: '24px',
-        display: 'flex',
-        alignItems: 'start'
     },
     editForm: {
         display: 'flex',
@@ -126,7 +125,7 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                             <CardMedia component='image' image={post.image_url} className={classes.image}/>
                         </Grid>
                         <Grid item xs={7}>
-                            <CardContent>
+                            <CardContent style={{marginTop: '90px'}}>
                                 <Typography variant='h4'>
                                     {post.album_name}
                                 </Typography>
@@ -142,11 +141,12 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                         </Grid>
                         {loggedInUser.id === post.user_id ? 
                         <Grid item xs={12}>
+                            <br />
                             <IconButton edge='end' onClick={() => setOpen(true)}>
-                                <EditIcon fontSize='large'/>
+                                <EditIcon fontSize='large' style={{color: '#815A34'}}/>
                             </IconButton>
                             <IconButton edge='end' onClick={handleDelete} style={{marginLeft: '10px'}}>
-                                <DeleteIcon fontSize='large'/>
+                                <DeleteIcon fontSize='large' style={{color: '#815A34'}}/>
                             </IconButton>
                         </Grid> 
                         :
@@ -169,7 +169,7 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                 aria-describedby="modal-modal-description"
                 >
                     <div className='modalForm'>
-                        <IconButton edge='end' onClick={() => setOpen(false)} style={{marginLeft: '370px', marginTop: '10px'}}>
+                        <IconButton edge='end' onClick={() => setOpen(false)} style={{marginLeft: '370px', marginTop: '10px', color: '#815A34'}}>
                             <CloseIcon fontSize='medium'/>
                         </IconButton>
                         <form onSubmit={handleEditPost} className={classes.editForm}>
@@ -177,10 +177,11 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                             id="standard-full-width"
                             fullWidth
                             label="Album Name" 
-                            variant="outlined"
+                            variant="filled"
                             color="secondary"
                             name="album_name"
                             onChange={(e) => setAlbumName(e.target.value)}
+                            style={{backgroundColor: 'white'}}
                             required
                             />
                             <br />
@@ -189,10 +190,11 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                             id="standard-full-width"
                             fullWidth
                             label="Image URL" 
-                            variant="outlined"
+                            variant="filled"
                             color="secondary"
                             name="image_url"
                             onChange={(e) => setImageUrl(e.target.value)}
+                            style={{backgroundColor: 'white'}}
                             required
                             />
                             <br />
@@ -201,10 +203,11 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                             id="standard-full-width"
                             fullWidth
                             label="Artist" 
-                            variant="outlined"
+                            variant="filled"
                             color="secondary"
                             name="artist"
                             onChange={(e) => setArtist(e.target.value)}
+                            style={{backgroundColor: 'white'}}
                             required
                             />
                             <br />
@@ -213,10 +216,11 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                             id="standard-full-width"
                             fullWidth
                             label="Genre" 
-                            variant="outlined"
+                            variant="filled"
                             color="secondary"
                             name="genre"
                             onChange={(e) => setGenre(e.target.value)}
+                            style={{backgroundColor: 'white'}}
                             required
                             />
                             <br />
@@ -225,10 +229,11 @@ function PostDetails({ setPosts, loggedInUser, setLoggedInUser }) {
                             id="standard-full-width"
                             fullWidth
                             label="Tracklist" 
-                            variant="outlined"
+                            variant="filled"
                             color="secondary"
                             name="tracklist"
                             onChange={(e) => setTracklist(e.target.value)}
+                            style={{backgroundColor: 'white'}}
                             required
                             />
                             <br />
